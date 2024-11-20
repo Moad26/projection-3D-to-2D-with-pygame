@@ -21,5 +21,3 @@ def rotate_vertices(vertices, angle_x, angle_y, angle_z):
     rotation_matrix = rot_z @ rot_y @ rot_x
 
     return vertices @ rotation_matrix.T
-
-

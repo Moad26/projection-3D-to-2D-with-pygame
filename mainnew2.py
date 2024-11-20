@@ -11,7 +11,7 @@ WIDTH, HEIGHT = 800, 600
 pygame.display.set_caption("3D projection in pygame!")
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-n, f, D, d = -200, -10, WIDTH, HEIGHT
+n, f, D, d = -5, -100, WIDTH, HEIGHT
 aspect_ratio = WIDTH / HEIGHT
 scale = 100
 
@@ -20,14 +20,14 @@ circle_pos = [WIDTH/2, HEIGHT/2]
 angle = 0
 
 points = np.array([
-    [1, 1, -1],   # Front-top-right
-    [1, -1, -1],  # Front-bottom-right
-    [-1, -1, -1], # Front-bottom-left
-    [-1, 1, -1],  # Front-top-left
-    [1, 1, -3],   # Back-top-right
-    [1, -1, -3],  # Back-bottom-right
-    [-1, -1, -3], # Back-bottom-left
-    [-1, 1, -3],  # Back-top-left
+    [1, 1, -3],   # Front-top-right
+    [1, -1, -3],  # Front-bottom-right
+    [-1, -1, -3], # Front-bottom-left
+    [-1, 1, -3],  # Front-top-left
+    [1, 1, -5],   # Back-top-right
+    [1, -1, -5],  # Back-bottom-right
+    [-1, -1, -5], # Back-bottom-left
+    [-1, 1, -5],  # Back-top-left
 ])
 
 # Calculate the center of the cube
@@ -35,7 +35,7 @@ center = np.mean(points, axis=0)
 
 points2d = np.empty((len(points), 2))
 
-p1 = Projection(near=1, far=20, D=2 * aspect_ratio, d=2)
+p1 = Projection(near=n, far=f, D=2 * aspect_ratio, d=2)
 r1 = Rotation()
 
 
